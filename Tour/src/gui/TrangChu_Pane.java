@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import dohuyhoang.animation.slideshowpane.SlideShowPane;
+import dohuyhoang.animation.slideshow.SlideShowPane;
 
 public class TrangChu_Pane extends JPanel {
 	/**

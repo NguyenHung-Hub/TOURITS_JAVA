@@ -2,14 +2,12 @@ package entity;
 
 import java.sql.Date;
 
-public class KhachHang {
+public class KhachHang extends TaiKhoan {
 	private String maKhachHang;
 	private String tenKhachHang;
 	private boolean gioiTinh;
 	private Date ngaySinh;
-	private String soDienThoai;
-	private String email;
-	private String diaChi;
+	private DiaChi diaChi;
 	/**
 	 * @return the maKhachHang
 	 */
@@ -59,67 +57,37 @@ public class KhachHang {
 		this.ngaySinh = ngaySinh;
 	}
 	/**
-	 * @return the soDienThoai
-	 */
-	public String getSoDienThoai() {
-		return soDienThoai;
-	}
-	/**
-	 * @param soDienThoai the soDienThoai to set
-	 */
-	public void setSoDienThoai(String soDienThoai) {
-		this.soDienThoai = soDienThoai;
-	}
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	/**
 	 * @return the diaChi
 	 */
-	public String getDiaChi() {
+	public DiaChi getDiaChi() {
 		return diaChi;
 	}
 	/**
 	 * @param diaChi the diaChi to set
 	 */
-	public void setDiaChi(String diaChi) {
+	public void setDiaChi(DiaChi diaChi) {
 		this.diaChi = diaChi;
 	}
 	/**
+	 * @param soDienThoai
+	 * @param email
+	 * @param matKhau
 	 * @param maKhachHang
 	 * @param tenKhachHang
 	 * @param gioiTinh
 	 * @param ngaySinh
-	 * @param soDienThoai
-	 * @param email
 	 * @param diaChi
 	 */
-	public KhachHang(String maKhachHang, String tenKhachHang, boolean gioiTinh, Date ngaySinh, String soDienThoai,
-			String email, String diaChi) {
-		super();
+	public KhachHang(String soDienThoai, String email, String matKhau, String maKhachHang, String tenKhachHang,
+			boolean gioiTinh, Date ngaySinh, DiaChi diaChi) {
+		super(soDienThoai, email, matKhau);
 		setMaKhachHang(maKhachHang);
 		setTenKhachHang(tenKhachHang);
 		setGioiTinh(gioiTinh);
 		setNgaySinh(ngaySinh);
-		setSoDienThoai(soDienThoai);
-		setEmail(email);
 		setDiaChi(diaChi);
 	}
 	public KhachHang() {
 		// TODO Auto-generated constructor stub
-	}
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
 	}
 }

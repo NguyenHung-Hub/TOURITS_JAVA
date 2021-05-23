@@ -22,8 +22,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
-import dohuyhoang.animation.slideshowpane.SlideShowPane;
+import dohuyhoang.animation.slideshow.SlideShowPaneAnimation;
 
 public class Login extends JFrame {
 	private JTextField userTXT;
@@ -144,27 +145,19 @@ public class Login extends JFrame {
 				"/gui/img/picture.jpg",
 				"/gui/img/picture2.jpg",
 				"/gui/img/picture3.jpg",
-				"/gui/img/picture4.jpeg",
-				"/gui/img/picture5.png",
-				"/gui/img/picture6.jpg",
+				"/gui/img/picture4.jpeg"
 		};
 		String[] listTitle = {
-			"Chào Mừng các bạn",
-			"Xin Chào",
-			"Hello",
-			"Ha",
-			"sdfa",
-			"sahdfsd"
+			"Welcome TOP TRAVEL",
+			"Du lịch an toàn",
+			"An tâm trải nghiệm",
+			"Tận hưởng bản sắc Việt"
 		};
-		SlideShowPane slideShowPane = new SlideShowPane(listPath, 2000, 1000, new Rectangle(0, 0, 300, 350), listTitle);
+		SlideShowPaneAnimation slideShowPane = new SlideShowPaneAnimation(listPath, 2000, 1000, new Rectangle(0, 0, 300, 350), listTitle);
 		slideShowPane.start();
 		slideShowPane.setBackground(new Color(68, 187, 182));
-		slideShowPane.getPanels().get(2).setForeground(Color.BLACK);
-		JLabel title = new JLabel("TRAVEL");
-		title.setFont(new Font("Segoe ui", Font.BOLD, 18));
-		title.setForeground(Color.WHITE);
-		title.setBounds(10, 20, 100, 30);
-		slideShowPane.add(title);
+		slideShowPane.setFontTitle(new Font(MainScreen.FONT_TEXT, Font.BOLD, 24));
+		slideShowPane.setColorTitle(Color.WHITE);
 		slideShowPane.setBounds(0, 0, 300, 350);
 		wrapper.add(slideShowPane);
 		
@@ -208,7 +201,6 @@ public class Login extends JFrame {
 			
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				new Login().setVisible(true);
 			}
 		});

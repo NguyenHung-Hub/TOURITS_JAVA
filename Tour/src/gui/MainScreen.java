@@ -23,7 +23,7 @@ import javax.swing.Timer;
 
 import dohuyhoang.animation.AnimationPane;
 import dohuyhoang.animation.AnimationPaneColor;
-import dohuyhoang.animation.roundedpane.RoundedPane;
+import dohuyhoang.roundedpane.RoundedPane;
 
 public class MainScreen extends JFrame {
 	/**

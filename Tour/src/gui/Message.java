@@ -128,7 +128,7 @@ public class Message extends JFrame {
 		message.setBounds(80, 80, 300, 20);
 		wrapper.add(message);
 		
-		JButton buttonThoat = new JButton("Thoát");
+		JButton buttonThoat = new JButton("Đồng ý");
 		buttonThoat.requestFocus();
 		buttonThoat.setBackground(MainScreen.COLOR_MAIN);
 		buttonThoat.setFont(new Font(MainScreen.FONT_TEXT, Font.PLAIN, 16));
@@ -151,7 +151,7 @@ public class Message extends JFrame {
 		});
 		wrapper.add(buttonThoat);
 		
-		buttonCancle = new JButton("Cancle");
+		buttonCancle = new JButton("Hủy");
 		buttonCancle.setBackground(MainScreen.COLOR_MAIN);
 		buttonCancle.setFont(new Font(MainScreen.FONT_TEXT, Font.PLAIN, 16));
 		buttonCancle.setBounds(270, 150, 80, 30);

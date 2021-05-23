@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
-encoding//src/dao/KhachHang_DAO_impl.java=UTF-8
+encoding//src/dao/DiaChi_DAO.java=UTF-8
+encoding//src/dao/KhachHang_DAO.java=UTF-8
+encoding//src/entity/KhachHang.java=UTF-8
 encoding//src/gui=UTF-8
 encoding//src/gui/Login.java=UTF-8

@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import dohuyhoang.animation.roundedpane.RoundedPane;
+import dohuyhoang.roundedpane.RoundedPane;
 
 public class Header extends RoundedPane implements Runnable {
 	/**

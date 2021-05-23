@@ -13,6 +13,8 @@ import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.EventObject;
 
@@ -30,7 +32,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import connect.ConnectDB;
-import dao.KhachHang_DAO_impl;
+import dao.DiaChi_DAO;
+import dao.KhachHang_DAO;
 import entity.KhachHang;
 
 
@@ -42,7 +45,7 @@ public class KhachHang_Pane extends JPanel implements ActionListener {
 	private JTextField timKiemTen;
 	private JTable table;
 	private DefaultTableModel tableModel;
-	private KhachHang_DAO_impl kh_DAO;
+	private KhachHang_DAO kh_DAO;
 	private ArrayList<KhachHang> dsKhachHang;
 	private JButton buttonDauTrang;
 	private JButton buttonLui;
@@ -90,7 +93,7 @@ public class KhachHang_Pane extends JPanel implements ActionListener {
 			e.printStackTrace();
 		}
 		
-		kh_DAO = new KhachHang_DAO_impl();
+		kh_DAO = new KhachHang_DAO();
 		
 		JLabel tieuDe = new JLabel();
 		tieuDe.setText("Khách hàng");
@@ -113,7 +116,6 @@ public class KhachHang_Pane extends JPanel implements ActionListener {
 			}
 		};
 		timKiemMa.setFont(new Font(MainScreen.FONT_TEXT, Font.PLAIN, 16));
-//		timKiemMa.setBorder(BorderFactory.createMatteBorder(0, 0, 4, 0, MainScreen.COLOR_MAIN));
 		timKiemMa.setBounds(10, 55, 500, 30);
 		timKiemMa.addKeyListener(new KeyAdapter() {
 			@Override
@@ -142,7 +144,6 @@ public class KhachHang_Pane extends JPanel implements ActionListener {
 		timKiemTen.requestFocus(false);
 		timKiemTen.setFont(new Font(MainScreen.FONT_TEXT, Font.PLAIN, 16));
 		timKiemTen.setBounds(10, 100, 500, 30);
-//		timKiemTen.setBorder(BorderFactory.createMatteBorder(0, 0, 4, 0, MainScreen.COLOR_MAIN));
 		timKiemTen.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -164,7 +165,7 @@ public class KhachHang_Pane extends JPanel implements ActionListener {
 		
 		DefaultComboBoxModel<String> cbDiaChiModel = new DefaultComboBoxModel<String>();
 		cbDiaChiModel.addElement("<Tỉnh/TP>");
-//		cbDiaChiModel.addAll(kh_DAO.getAllTinh());
+		cbDiaChiModel.addAll(DiaChi_DAO.getAllTinh());
 		cbDiaChi = new JComboBox<String>();
 		cbDiaChi.setFont(new Font(MainScreen.FONT_TEXT, Font.BOLD, 16));
 		cbDiaChi.setModel(cbDiaChiModel);
@@ -238,7 +239,7 @@ public class KhachHang_Pane extends JPanel implements ActionListener {
         buttonCuoiTrang.addActionListener(this);
         add(buttonCuoiTrang);
         
-//        themVaoBang();
+        themVaoBang();
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -312,10 +313,10 @@ public class KhachHang_Pane extends JPanel implements ActionListener {
 		else if(index == 2) {
 			gioiTinh = "1";
 		}
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		dsKhachHang = kh_DAO.themVaoBang(page - 1, timKiemMa.getText().trim(), timKiemTen.getText().trim(), gioiTinh);
 		for (KhachHang khachHang : dsKhachHang) {
-			tableModel.addRow(new Object[] {khachHang.getMaKhachHang(), khachHang.getTenKhachHang(), khachHang.isGioiTinh() ? "Nữ":"Nam", khachHang.getNgaySinh(), khachHang.getSoDienThoai(), khachHang.getEmail(), khachHang.getDiaChi()});
+			tableModel.addRow(new Object[] {khachHang.getMaKhachHang(), khachHang.getTenKhachHang(), khachHang.isGioiTinh() ? "Nữ":"Nam", sdf.format(khachHang.getNgaySinh()), khachHang.getSoDienThoai(), khachHang.getEmail(), khachHang.getDiaChi().getTinhThanh()});
 		}
 	}
 }

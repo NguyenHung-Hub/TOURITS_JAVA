@@ -74,8 +74,8 @@ public class ChuyenDi_Pane extends JPanel {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				ChuyenDi chuyenDi = cd_DAO.getChuyenDi(table.getValueAt(table.getSelectedRow(), 0).toString());
-				anhChuyenDi.setIcon(new ImageIcon(chuyenDi.getAnh()));
-				tenChuyenDi.setText(chuyenDi.getTenChuyenDi());
+//				anhChuyenDi.setIcon(new ImageIcon(chuyenDi.getAnh()));
+//				tenChuyenDi.setText(chuyenDi.getTenChuyenDi());
 			}
 		});
 		JScrollPane sp = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);

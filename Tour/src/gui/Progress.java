@@ -59,10 +59,10 @@ public class Progress extends JFrame {
 			}
 		});
 		tm.start();
-		progressBar.setForeground(Color.GREEN);
+		progressBar.setForeground(Color.WHITE);
 		progressBar.setFont(new Font("Segoe ui", Font.BOLD, 16));
 		progressBar.setStringPainted(true);
-		progressBar.setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.BLACK));
+		progressBar.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.GRAY));
 		progressBar.setBounds(100, 90, 300, 30);
 		wrapper.setLayout(null);
 		wrapper.add(progressBar);

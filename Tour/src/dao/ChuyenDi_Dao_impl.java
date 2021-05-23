@@ -14,9 +14,8 @@ import javax.swing.ImageIcon;
 import connect.ConnectDB;
 import entity.ChuyenDi;
 
-public class ChuyenDi_Dao_impl implements ChuyenDi_DAO {
+public class ChuyenDi_Dao_impl {
 
-	@Override
 	public ArrayList<ChuyenDi> getAllChuyenDi() {
 		ArrayList<ChuyenDi> dsChuyenDi = new ArrayList<ChuyenDi>();
 		ConnectDB.getInstance();
@@ -35,8 +34,8 @@ public class ChuyenDi_Dao_impl implements ChuyenDi_DAO {
 				byte[] img = rs.getBytes(5);
 				ImageIcon icon = new ImageIcon(img);
 				Image anh = icon.getImage().getScaledInstance(600, 300, Image.SCALE_SMOOTH);
-				ChuyenDi chuyenDi = new ChuyenDi(maChuyenDi, tenChuyenDi, ngayKhoiHanh, ngayKetThuc, anh);
-				dsChuyenDi.add(chuyenDi);
+//				ChuyenDi chuyenDi = new ChuyenDi(maChuyenDi, tenChuyenDi, ngayKhoiHanh, ngayKetThuc, anh);
+//				dsChuyenDi.add(chuyenDi);
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception
@@ -45,7 +44,6 @@ public class ChuyenDi_Dao_impl implements ChuyenDi_DAO {
 		return dsChuyenDi;
 	}
 
-	@Override
 	public ChuyenDi getChuyenDi(String maCD) {
 		ConnectDB.getInstance();
 		Connection con = ConnectDB.getConnection();
@@ -65,7 +63,7 @@ public class ChuyenDi_Dao_impl implements ChuyenDi_DAO {
 				byte[] img = rs.getBytes(5);
 				ImageIcon icon = new ImageIcon(img);
 				Image anh = icon.getImage().getScaledInstance(600, 300, Image.SCALE_SMOOTH);
-				chuyenDi = new ChuyenDi(maChuyenDi, tenChuyenDi, ngayKhoiHanh, ngayKetThuc, anh);
+//				chuyenDi = new ChuyenDi(maChuyenDi, tenChuyenDi, ngayKhoiHanh, ngayKetThuc, anh);
 			}
 		} catch (SQLException e) {
 			// TODO: handle exception
@@ -73,30 +71,25 @@ public class ChuyenDi_Dao_impl implements ChuyenDi_DAO {
 		return chuyenDi;
 	}
 
-	@Override
 	public boolean insertChuyenDi(ChuyenDi chuyenDi) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public void updateChuyenDi(ChuyenDi chuyenDi) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void deleteChuyenDi(ChuyenDi chuyenDi) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public ArrayList<ChuyenDi> themVaoBangChuyenDi() {
 		return null;
 	}
 
-	@Override
 	public ArrayList<ChuyenDi> themVaoBangChuyenDi(int page) {
 		// TODO Auto-generated method stub
 		return null;

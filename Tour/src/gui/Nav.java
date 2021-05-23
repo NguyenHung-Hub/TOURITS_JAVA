@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import dohuyhoang.animation.AnimationPane;
-import dohuyhoang.animation.roundedpane.RoundedPane;
+import dohuyhoang.roundedpane.RoundedPane;
 
 public class Nav extends RoundedPane {
 	/**
